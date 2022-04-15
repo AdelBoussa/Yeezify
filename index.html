@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, intitial-scale=1.0">
+
+<title> Yeezify </title>
+<style>
+    .img-container-1{
+        position: absolute;
+     
+
+            top: 33%;
+            left: 10%;
+    }
+    .img-container-2{
+        position: absolute;
+        
+
+            top: 33%;
+            left: 45%;
+    }
+    .img-container-3{
+        position: absolute;
+       
+
+            top: 33%;
+            left: 80%;
+    }
+    body{
+        background-image: radial-gradient(circle at center, rgb(255, 164, 164) 0, rgb(255, 141, 70) 80%, rgb(255, 142, 4) 100%);
+    }
+</style>
+
+</head>
+<body>
+    <h1 id="h"></h1>
+<audio src="sounds/1.mp3" id="audio"></audio>   
+<div class="img-container-1" id="img1">
+    <img src="images/kanye1.png" name="pic1" id="pic1" onclick = "yeezify1()" />
+</div>
+<div class="img-container-2" id="img2">
+    <img src="images/kanye2.png" name="pic2" id="pic2" onclick="yeezify2()" />
+</div>
+<div class="img-container-3" id="img3">
+    <img src="images/kanye3.png"/ name="pic3" id="pic3" onclick="yeezify3()">
+</div>
+
+<script>
+const audio = document.getElementById('audio');
+const songs = ['1','2','3','4','5','6','7','8'];
+let songIndex = 0; 
+   function loadSong(song) {
+  
+     audio.src = `sounds/${song}.mp3`;
+
+    }
+   function playSound(){
+    shuffle();
+    loadSong(songs[songIndex]);
+    audio.play();
+   }
+   function shuffle(){
+    let temp = songIndex;
+    songIndex = Math.floor(Math.random()*8);
+    if(temp == songIndex && temp != 7){
+        songIndex++;
+    }
+    else if(temp == songIndex && temp == 7){
+        songIndex=0;
+    }
+   }
+
+
+   function yeezify1(){
+       var x = 0;//document.getElementById("pic1").src.endsWith('images/kanye.png') == -1
+        if (document.getElementById("pic1").src.endsWith('images/kanye1.png') != -1)  //==:Comparison
+   { 
+       x=1;
+   // document.getElementById("h").innerHTML = "passed 1";
+    document.getElementById("pic1").src = "images/kanye.png"; //=:assignment   
+   } 
+   else if (document.getElementById("pic1").src.endsWith('images/kanye.png') != -1) 
+   { 
+    document.getElementById("h").innerHTML = "passed 2";
+      document.getElementById("pic1").src = "images/kanye1.png"; 
+   }
+   shuffle();
+   playSound();
+    }
+ 
+ 
+    function yeezify2(){
+        if (document.getElementById("pic2").src.endsWith('images/kanye2.png') != -1)  //==:Comparison
+   { 
+      document.getElementById("pic2").src = "images/kanye.png"; //=:assignment   
+   } 
+   else if (window.document.getElementById("pic2").src == "images/kanye.png") 
+   { 
+    document.getElementById("h").innerHTML = "passed 2";
+      document.getElementById("pic2").src = "images/kanye2.png"; 
+   }
+   shuffle();
+   playSound();
+    }
+   
+    function yeezify3(){
+        if (document.getElementById("pic3").src.endsWith('images/kanye3.png') != -1)  //==:Comparison
+   { 
+      document.getElementById("pic3").src = "images/kanye.png"; //=:assignment   
+   } 
+   else if (window.document.pic3.src.endsWith('images/kanye.png') != -1) 
+   { 
+    document.getElementById("h").innerHTML = "passed 2";
+      document.getElementById("pic3").src = "images/kanye3.png"; 
+   }
+   shuffle();
+   playSound();
+    }
+
+</script>
+</body>
+
+</html>
